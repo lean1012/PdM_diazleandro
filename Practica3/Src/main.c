@@ -40,10 +40,11 @@
 #define OFF 0
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+//sequence of LEDs
 Led_TypeDef led_seq[3] = {LED1,LED2,LED3};
-
+//delays associated with each LED
 uint16_t led_delay_seq[3] = {DELAY_LED1,DELAY_LED2,DELAY_LED3};
-
+//array where the state of each delay is stored
 delay_t led_seq_delay[3];
 
 /* UART handler declaration */
@@ -89,17 +90,18 @@ int main(void)
 	for(uint8_t i=0;i<3;i++){
 		delayInit(&led_seq_delay[i],led_delay_seq[i]);
 	}
-
-
-
+	//current LED
 	uint8_t index_leds = 0;
-	uint8_t flag =ON;
+	//first ON
+	uint8_t flag = ON;
 	while (1)
 	{
 		if(delayRead(&led_seq_delay[index_leds])){
+			//flag ON => turn ON, init delay again
 			if(flag==ON){
 				BSP_LED_On(led_seq[index_leds]);
 				flag=OFF;
+			//flag OFF => turn OFF, next LED and init delay
 			}else if(flag==OFF){
 				BSP_LED_Off(led_seq[index_leds]);
 				flag=ON;
@@ -109,7 +111,7 @@ int main(void)
 					index_leds=0;
 				}
 			}
-			delayInit(&led_seq_delay[index_leds],led_delay_seq[0]);
+			delayInit(&led_seq_delay[index_leds],led_delay_seq[index_leds]);
 		}
 
 	}
