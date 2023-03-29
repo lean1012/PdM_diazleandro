@@ -1,0 +1,96 @@
+#include "sht4x.h"
+#include <stdint.h>
+#include <stdbool.h>
+
+
+
+
+int8_t sht4x_write(uint8_t address, const uint8_t* data, uint16_t data_length);
+
+int8_t sht4x_read(uint8_t address, const uint8_t* data, uint16_t data_length);
+
+int8_t sht4x_sleep(uint8_t* data);
+
+void sht4x_print();
+
+void sht4x_init_port(void* p_i2c);
+
+
+static uint16_t buffer_to_uint16_t(const uint8_t* bytes) {
+    return (uint16_t)bytes[0] << 8 | (uint16_t)bytes[1];
+}
+
+static int16_t convert_ticks_to_celsius(uint16_t ticks) {
+    return ((ticks * 175) / 65535) - 45;
+}
+
+static int16_t convert_ticks_to_percent_rh(uint16_t ticks) {
+    return (((ticks * 125)) / 65535) - 6;
+}
+
+
+static int16_t sht4x_measure_ticks(uint8_t precision, uint16_t* temperature_ticks, uint16_t* humidity_ticks){
+	uint8_t buffer[6];
+	int8_t err;
+	buffer[0] = precision;
+	err = sht4x_write(SHT4X_I2C_ADDRESS,buffer,1);
+	if (err < 0) {
+		sht4x_print("Error en la escritura. \n");
+		return err;
+	}
+	sht4x_sleep(100);
+
+	err = sht4x_read(SHT4X_I2C_ADDRESS,buffer,sizeof(buffer));
+	if (err < 0) {
+		sht4x_print("Error en la lectura.\n");
+		return err;
+	}
+
+	uint16_t temp = 0;
+	uint16_t checksum_temp = 0;
+	uint16_t hum = 0;
+	uint16_t checksum_hum = 0;
+
+	*temperature_ticks = buffer_to_uint16_t(&buffer[0]);
+	checksum_temp = buffer[2];
+	*humidity_ticks = buffer_to_uint16_t(&buffer[3]);
+	checksum_hum = buffer[5];
+
+}
+
+int8_t sht4x_init(void * i2c_init){
+	sht4x_init_port(i2c_init);
+}
+
+int8_t sht4x_read_serial_number(uint16_t * p_serial_number){
+	uint8_t buffer[6];
+	int8_t err;
+	buffer[0] = SHT4X_SERIAL_NUMBER;
+	err = sht4x_write(SHT4X_I2C_ADDRESS,buffer,1);
+	if (err < 0) {
+		return err;
+	}
+	sht4x_sleep(100);
+	err = sht4x_read(SHT4X_I2C_ADDRESS,buffer,sizeof(buffer));
+
+	if (err < 0) {
+			return err;
+	}
+	*p_serial_number = buffer[0]*256 + buffer[1];
+	return 0;
+}
+
+int8_t sht4x_temp_hum_low_presition(uint16_t * temperature, uint16_t* humidity){
+
+	uint16_t temp_ticks = 0;
+	uint16_t hum_ticks = 0;
+	sht4x_measure_ticks(SHT4X_CMD_MEASURE_LPM, &temp_ticks, &hum_ticks);
+	*temperature = convert_ticks_to_celsius(temp_ticks);
+	*humidity = convert_ticks_to_percent_rh(hum_ticks);
+
+	return 0;
+}
+
+
+
+

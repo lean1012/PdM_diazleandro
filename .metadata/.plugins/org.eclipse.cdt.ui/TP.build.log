@@ -1,0 +1,30 @@
+17:03:42 **** Incremental Build of configuration Debug for project TP ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/TP/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/TP/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/TP/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/TP/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/TP/Drivers/Core/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/TP/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:98:3: warning: implicit declaration of function 'sunrise_init' [-Wimplicit-function-declaration]
+   98 |   sunrise_init(&hi2c1);
+      |   ^~~~~~~~~~~~
+../Src/main.c:122:4: warning: implicit declaration of function 'sunrise_read_co2' [-Wimplicit-function-declaration]
+  122 |    sunrise_read_co2(&hola);
+      |    ^~~~~~~~~~~~~~~~
+../Src/main.c:110:14: warning: unused variable 'hum16' [-Wunused-variable]
+  110 |     uint16_t hum16 = 0;
+      |              ^~~~~
+../Src/main.c:109:14: warning: unused variable 'temp16' [-Wunused-variable]
+  109 |     uint16_t temp16 = 0;
+      |              ^~~~~~
+arm-none-eabi-gcc -o "TP.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/TP/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TP.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TP.elf
+ 
+arm-none-eabi-size   TP.elf 
+arm-none-eabi-objdump -h -S  TP.elf  > "TP.list"
+   text	   data	    bss	    dec	    hex	filename
+  11020	     20	   1660	  12700	   319c	TP.elf
+Finished building: default.size.stdout
+ 
+Finished building: TP.list
+ 
+
+17:03:43 Build Finished. 0 errors, 4 warnings. (took 576ms)
+

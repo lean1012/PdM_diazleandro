@@ -1,89 +1,14 @@
-11:44:21 **** Incremental Build of configuration Debug for project Practica3 ****
+21:45:27 **** Incremental Build of configuration Debug for project Practica4_2 ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/Core/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-../Src/main.c:46:33: warning: missing braces around initializer [-Wmissing-braces]
-   46 | struct led_item led_seq_v2[3] = {
-      |                                 ^
-../Src/main.c:46:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c:46:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c:46:33: warning: missing braces around initializer [-Wmissing-braces]
-arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Practica3.elf
+arm-none-eabi-gcc "../Drivers/API/Src/API_debounce.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica4_2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica4_2/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica4_2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica4_2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica4_2/Drivers/Core/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica4_2/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/API/Src/API_debounce.d" -MT"Drivers/API/Src/API_debounce.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_debounce.o"
+arm-none-eabi-gcc -o "Practica4_2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica4_2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica4_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica4_2.elf
  
-arm-none-eabi-size   Practica3.elf 
-arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
+arm-none-eabi-size   Practica4_2.elf 
+arm-none-eabi-objdump -h -S  Practica4_2.elf  > "Practica4_2.list"
    text	   data	    bss	    dec	    hex	filename
-   6472	     44	   1604	   8120	   1fb8	Practica3.elf
+   7136	     40	   1600	   8776	   2248	Practica4_2.elf
 Finished building: default.size.stdout
  
-Finished building: Practica3.list
- 
-12:18:09 **** Incremental Build of configuration Debug for project Practica3 ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/Core/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Drivers/API/Src/API_delay.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/Core/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/API/Src/API_delay.d" -MT"Drivers/API/Src/API_delay.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_delay.o"
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-   49 | struct led_item led_seq_v2[3] = {
-      |                                 ^
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c: In function 'main':
-../Src/main.c:119:8: error: 'i' undeclared (first use in this function)
-  119 |     if(i<(sizeof(led_seq)-1)){
-      |        ^
-../Src/main.c:119:8: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Src/subdir.mk:19: Src/main.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-12:18:39 **** Incremental Build of configuration Debug for project Practica3 ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/Core/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-   49 | struct led_item led_seq_v2[3] = {
-      |                                 ^
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c: In function 'main':
-../Src/main.c:120:6: error: 'i' undeclared (first use in this function)
-  120 |      i++;
-      |      ^
-../Src/main.c:120:6: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Src/subdir.mk:19: Src/main.o] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-12:18:55 **** Incremental Build of configuration Debug for project Practica3 ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/Core/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-   49 | struct led_item led_seq_v2[3] = {
-      |                                 ^
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-../Src/main.c:49:33: warning: missing braces around initializer [-Wmissing-braces]
-arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Practica3.elf
- 
-arm-none-eabi-size   Practica3.elf 
-arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
-   text	   data	    bss	    dec	    hex	filename
-   6496	     44	   1604	   8144	   1fd0	Practica3.elf
-Finished building: default.size.stdout
- 
-Finished building: Practica3.list
- 
-23:14:33 **** Incremental Build of configuration Debug for project Practica3 ****
-make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/Core/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Drivers/API/Src/API_delay.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/Core/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/API/Src/API_delay.d" -MT"Drivers/API/Src/API_delay.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_delay.o"
-arm-none-eabi-gcc -o "Practica3.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica3/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Practica3.elf
- 
-arm-none-eabi-size   Practica3.elf 
-arm-none-eabi-objdump -h -S  Practica3.elf  > "Practica3.list"
-   text	   data	    bss	    dec	    hex	filename
-   6500	     44	   1604	   8148	   1fd4	Practica3.elf
-Finished building: default.size.stdout
- 
-Finished building: Practica3.list
+Finished building: Practica4_2.list
  

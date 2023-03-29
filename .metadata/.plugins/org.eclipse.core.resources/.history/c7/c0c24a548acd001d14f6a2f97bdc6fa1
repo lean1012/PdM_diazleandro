@@ -1,0 +1,13 @@
+#ifndef __API_sht4x_H
+#define __API_sht4x_H
+#include <stdint.h>
+#include <stdbool.h>
+
+#define SUNRISE_I2C_ADDRESS 0x44
+
+
+int8_t sunrise_read_serial_number(uint16_t * p_serial_number);
+int8_t sunrise_init(void * i2c_init);
+
+
+#endif

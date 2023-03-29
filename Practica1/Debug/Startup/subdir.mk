@@ -16,7 +16,7 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Startup/%.o: ../Startup/%.s Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"/home/leandro/Desktop/UBA/sistemas_embebidos/CESE_diazleandro/Practica1/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/sistemas_embebidos/CESE_diazleandro/Practica1/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/sistemas_embebidos/CESE_diazleandro/Practica1/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/sistemas_embebidos/CESE_diazleandro/Practica1/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/sistemas_embebidos/CESE_diazleandro/Practica1/Inc" -I"/home/leandro/Desktop/UBA/sistemas_embebidos/CESE_diazleandro/Practica1/Drivers/Core/Inc" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica1/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica1/Drivers/CMSIS/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica1/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica1/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica1/Inc" -I"/home/leandro/Desktop/UBA/CESE/PdM/PdM_diazleandro/Practica1/Drivers/Core/Inc" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-Startup
 
