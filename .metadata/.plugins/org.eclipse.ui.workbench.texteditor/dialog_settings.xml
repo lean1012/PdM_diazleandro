@@ -6,8 +6,15 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="MAX"/>
+		<item key="selection" value="I2C_MasterRequestWrite"/>
 		<list key="findhistory">
+			<item value="Size"/>
+			<item value="I2C_MasterRequestWrite"/>
+			<item value="HAL_GetTick"/>
+			<item value="HAL_ERROR"/>
+			<item value="HAL_I2C_IsDeviceReady"/>
+			<item value="sht4x"/>
+			<item value="sht4x_read_temp_hum_low_presition"/>
 			<item value="MAX_GPIO"/>
 			<item value="MAX_GPIOP"/>
 			<item value="MAX"/>
@@ -16,20 +23,14 @@
 			<item value="GPIO_AF4_I2C1"/>
 			<item value="i2c"/>
 			<item value="__HAL_RCC_I2C1_CLK_DISABLE"/>
-			<item value="PB6"/>
-			<item value="GPIOB"/>
-			<item value="sda"/>
-			<item value="HAL_MAX_DELAY"/>
-			<item value="time"/>
-			<item value="SystemClock_Config"/>
-			<item value="MX_I2C1_Init"/>
 		</list>
 		<list key="replacehistory">
+			<item value="sunrise"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="122"/>
-		<item key="DIALOG_Y_ORIGIN" value="500"/>
+		<item key="DIALOG_X_ORIGIN" value="1084"/>
+		<item key="DIALOG_Y_ORIGIN" value="149"/>
 		<item key="DIALOG_WIDTH" value="363"/>
 		<item key="DIALOG_HEIGHT" value="437"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>

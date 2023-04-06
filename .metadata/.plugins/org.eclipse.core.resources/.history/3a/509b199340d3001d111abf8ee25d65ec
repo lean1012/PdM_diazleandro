@@ -1,0 +1,59 @@
+/*
+ * API_uart.h
+ *
+ *  Created on: Apr 3, 2023
+ *      Author: leandro
+ */
+
+#ifndef API_INC_API_UART_H_
+#define API_INC_API_UART_H_
+
+#include <stdio.h>
+#include "stm32f4xx_hal.h"  		/* <- HAL include */
+#include "stm32f4xx_nucleo_144.h" 	/* <- BSP include */
+#include <stdbool.h>
+
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_nucleo_144.h"
+
+typedef bool bool_t;
+/*Inicialización de UART,devuelve true: si la inicialización es exitosa,
+ *false: si la inicialización no es exitosa.
+ */
+bool_t uartInit();
+/*
+ * Envia un string por UART. El string que se desea enviar debe terminar con caracter ‘\0’
+ */
+void uartSendString(uint8_t * pstring);
+/*
+ * Enviar un string por UART. Recibe un puntero a un string que se desea enviar por la UART y un entero con la cantidad de caracteres que debe enviar
+ */
+void uartSendStringSize(uint8_t * pstring, uint16_t size);
+
+/*
+ * Enviar un string por UART. Recibe un puntero a un string donde se desea alojar el mensaje recibido y un entero con la cantidad
+ * de caracteres que debe guardar
+ */
+void uartReceiveStringSize(uint8_t * pstring, uint16_t size);
+
+#endif /* API_INC_API_UART_H_ */
+
+
+/* User can use this section to tailor USARTx/UARTx instance used and associated
+   resources */
+/* Definition for USARTx clock resources */
+#define USARTx                           USART3
+#define USARTx_CLK_ENABLE()              __HAL_RCC_USART3_CLK_ENABLE();
+#define USARTx_RX_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOD_CLK_ENABLE()
+#define USARTx_TX_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOD_CLK_ENABLE()
+
+#define USARTx_FORCE_RESET()             __HAL_RCC_USART3_FORCE_RESET()
+#define USARTx_RELEASE_RESET()           __HAL_RCC_USART3_RELEASE_RESET()
+
+/* Definition for USARTx Pins */
+#define USARTx_TX_PIN                    GPIO_PIN_8
+#define USARTx_TX_GPIO_PORT              GPIOD
+#define USARTx_TX_AF                     GPIO_AF7_USART3
+#define USARTx_RX_PIN                    GPIO_PIN_9
+#define USARTx_RX_GPIO_PORT              GPIOD
+#define USARTx_RX_AF                     GPIO_AF7_USART3

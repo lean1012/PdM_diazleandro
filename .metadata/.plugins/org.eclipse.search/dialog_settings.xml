@@ -20,10 +20,21 @@
 		<item key="DIALOG_X_ORIGIN" value="959"/>
 		<item key="DIALOG_Y_ORIGIN" value="160"/>
 		<item key="DIALOG_WIDTH" value="651"/>
-		<item key="DIALOG_HEIGHT" value="472"/>
+		<item key="DIALOG_HEIGHT" value="499"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
 		<item key="showEnclosingDefinitions" value="true"/>
+	</section>
+	<section name="TextSearchPage">
+		<item key="CASE_SENSITIVE" value="false"/>
+		<item key="REG_EX_SEARCH" value="false"/>
+		<item key="WHOLE_WORD" value="false"/>
+		<item key="SEARCH_DERIVED" value="false"/>
+		<item key="SEARCH_IN_BINARIES" value="false"/>
+		<item key="HISTORY_SIZE" value="0"/>
+		<section name="EXTENSIONS">
+			<item key="0" value="*"/>
+		</section>
 	</section>
 </section>
