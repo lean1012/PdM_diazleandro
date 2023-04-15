@@ -1,0 +1,37 @@
+/*
+ * API_mensurement.c
+ *
+ *  Created on: Apr 12, 2023
+ *      Author: leandro
+ */
+
+
+void measurement_FSM_init();		// debe cargar el estado inicial
+void measurement_FSM_update();	// debe leer las entradas, resolver la lógica de
+					// transición de estados y actualizar las salidas
+
+
+
+void measurement_FSM_update(){
+	switch(actual_state){
+
+			case BUTTON_UP:
+
+
+			break;
+
+			case BUTTON_FALLING:
+
+			break;
+
+			case BUTTON_DOWN:
+
+			break;
+
+
+			default:
+				actual_state=BUTTON_UP;
+			break;
+
+		}
+}

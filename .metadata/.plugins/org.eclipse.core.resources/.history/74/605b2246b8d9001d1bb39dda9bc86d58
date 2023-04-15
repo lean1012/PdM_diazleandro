@@ -1,0 +1,121 @@
+/*
+ * API_mensurement.c
+ *
+ *  Created on: Apr 12, 2023
+ *      Author: leandro
+ */
+
+#include "API_measurement.h"
+#include "API_delay.h"
+#include "sht4x.h"
+#include "sunrise.h"
+#include "API_debounce.h"
+
+
+typedef enum{
+	IDLE,
+	MEASURMENT,
+	PRINT,
+	CONFIGURATION,
+} measurment_state_t;
+
+delay_t measurement_period;
+delay_t doble_click;
+uint16_t doble_click_ms = 500;
+
+uint16_t period_ms = 500;
+
+
+struct air{
+	uint16_t co2;
+	uint16_t temp;
+	uint16_t hum ;
+};
+
+struct air air_p;
+
+static measurment_state_t actual_state;
+
+
+void measurement_FSM_init();		// debe cargar el estado inicial
+void measurement_FSM_update();	// debe leer las entradas, resolver la lógica de
+					// transición de estados y actualizar las salidas
+
+
+
+//delayInit(&led_seq_delay[i],led_delay_seq[i]);
+void measurement_FSM_init(){
+	actual_state = MEASURMENT;
+	delayInit(&measurement_period, period_ms);
+	delayRead(&measurement_period);
+}
+
+void measurement(){
+
+	if(delayRead(&measurement_period)){
+		  sunrise_read_co2(&air_p.co2);
+		  sht4x_temp_hum_low_presition(&air_p.temp, &air_p.hum);
+		  actual_state = PRINT;
+		  //HAL_Delay(1000);
+	}
+
+}
+
+void print_measurement(){
+	actual_state = MEASURMENT;
+	delayRead(&measurement_period); //disparo el timer
+}
+
+void measurement_FSM_update(){
+	switch(actual_state){
+
+			case IDLE:
+				if(readKey()){
+					actual_state = MEASURMENT;
+				}
+			break;
+
+			case MEASURMENT:
+				measurement();
+				if(readKey()){
+					actual_state = IDLE;
+				}
+			break;
+
+			case PRINT:
+				print_measurement();
+			break;
+
+			case CONFIGURATION:
+				//configuration_FSM();
+			break;
+
+			default:
+				actual_state=IDLE;
+			break;
+
+		}
+}
+
+void configuration_FSM(){
+
+	switch(actual_state){
+
+				case IDLE:
+					//nothing
+				break;
+
+				case MEASURMENT:
+
+				break;
+
+				case CONFIGURATION:
+					//configuration_FSM();
+				break;
+
+				default:
+					actual_state=IDLE;
+				break;
+
+			}
+}

@@ -21,6 +21,7 @@ static uint16_t buffer_to_uint16_t(const uint8_t* bytes) {
 
 int8_t sunrise_init(void * i2c_init){
 	sunrise_init_port(i2c_init);
+	return 0;
 }
 
 int8_t sunrise_read_co2(uint16_t * co2){
@@ -42,6 +43,45 @@ int8_t sunrise_read_co2(uint16_t * co2){
 	return 0;
 }
 
+
+
+int8_t sunrise_read_co2_low_power(uint16_t * co2){
+
+
+	/*switch(actual_state){
+
+				case INIT:
+					//drive EN PIN
+				break;
+
+				case WAIT_35_MS:
+					//delay
+				break;
+
+				case START_MENSUREMENT:
+					//send_co2
+				break;
+
+				case WAIT_2_4:
+					//delay
+				break;
+
+				case READ:
+					//read
+				break;
+
+				case DISABLED:
+					//disabled EN
+				break;
+
+				default:PIN
+					actual_state=DISABLED;
+				break;
+
+			}
+			*/
+	return 0;
+}
 
 
 

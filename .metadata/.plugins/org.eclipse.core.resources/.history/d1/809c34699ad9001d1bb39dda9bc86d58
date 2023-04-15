@@ -1,0 +1,13 @@
+/*
+ * API_mensurement.c
+ *
+ *  Created on: Apr 12, 2023
+ *      Author: leandro
+ */
+
+
+void debounceFSM_init();		// debe cargar el estado inicial
+void debounceFSM_update();	// debe leer las entradas, resolver la lógica de
+					// transición de estados y actualizar las salidas
+void buttonPressed();			// debe invertir el estado del LED1
+void buttonReleased();		// debe invertir el estado del LED3

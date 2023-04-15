@@ -42,5 +42,6 @@ void sht4x_sleep(uint16_t time_delay){
 }
 
 void sht4x_print(uint8_t* data){
+
 }
 

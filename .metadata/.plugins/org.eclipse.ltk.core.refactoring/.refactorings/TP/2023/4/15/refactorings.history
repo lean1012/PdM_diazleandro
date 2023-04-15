@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;TP/Drivers/API/Src/API_mensurement.c&apos; to &apos;API_measurement.c&apos;" description="Rename resource &apos;API_mensurement.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Drivers/API/Src/API_mensurement.c" name="API_measurement.c" stamp="1681349097974" updateReferences="true"/>
+</session>

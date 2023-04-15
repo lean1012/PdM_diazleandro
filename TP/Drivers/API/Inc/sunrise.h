@@ -1,5 +1,5 @@
-#ifndef __API_sht4x_H
-#define __API_sht4x_H
+#ifndef __API_sunrise_H
+#define __API_sunrise_H
 #include <stdint.h>
 #include <stdbool.h>
 

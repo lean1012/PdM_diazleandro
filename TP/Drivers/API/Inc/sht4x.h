@@ -3,34 +3,43 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define SHT4X_I2C_ADDRESS 0x44
-
-#define SHT4X_SLEEP 100
-
-#define SHT4X_CRC_POLY		0x31
-#define SHT4X_CRC_INIT		0xFF
-
-
-#define STATUS_OK 0
-#define STATUS_ERR_BAD_DATA (-1)
-#define STATUS_CRC_FAIL (-2)
-#define STATUS_UNKNOWN_DEVICE (-3)
-
-
-#define SHT4X_SERIAL_NUMBER 0x89
-
-#define SHT4X_CMD_MEASURE_HPM 0xFD
-#define SHT4X_CMD_MEASURE_MPM 0xFD
-#define SHT4X_CMD_MEASURE_LPM 0xE0
-
-
-
-#define SHT4X_MEASUREMENT_DURATION_USEC 10000 /* 10ms "high repeatability" */
-#define SHT4X_MEASUREMENT_DURATION_LPM_USEC 2500 /* 2.5ms "low repeatability" */
-
+/**
+ * @brief Lecutra del numero de seriel del sensor
+ * 
+ * @param p_serial_number puntero donde se devolvera el número de serie
+ * @return int8_t 0 OK, -1 error
+ */
 int8_t sht4x_read_serial_number(uint16_t * p_serial_number);
+/**
+ * @brief Inicializa el driver sht4x
+ * 
+ * @param i2c_init Puntero a la configuración i2c
+ * @return int8_t 0 OK, -1 error
+ */
 int8_t sht4x_init(void * i2c_init);
+/**
+ * @brief Lectura de temperatura y humedad con presición baja
+ * 
+ * @param temperature puntero a donde se devolvera la temperatura
+ * @param humidity puntero a donde se devolvera la temperatura
+ * @return int8_t 0 OK, -1 error
+ */
 int8_t sht4x_temp_hum_low_presition(uint16_t * temperature, uint16_t *humidity);
-
+/**
+ * @brief Lectura de temperatura y humedad con presición media
+ * 
+ * @param temperature puntero a donde se devolvera la temperatura
+ * @param humidity puntero a donde se devolvera la temperatura
+ * @return int8_t 0 OK, -1 error
+ */
+int8_t sht4x_temp_hum_medium_presition(uint16_t * temperature, uint16_t* humidity);
+/**
+ * @brief Lectura de temperatura y humedad con presición alta
+ * 
+ * @param temperature puntero a donde se devolvera la temperatura
+ * @param humidity puntero a donde se devolvera la temperatura
+ * @return int8_t 0 OK, -1 error
+ */
+int8_t sht4x_temp_hum_high_presition(uint16_t * temperature, uint16_t* humidity);
 
 #endif

@@ -5,21 +5,33 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Drivers/API/Src/API_debounce.c \
 ../Drivers/API/Src/API_delay.c \
+../Drivers/API/Src/API_dobleclick.c \
+../Drivers/API/Src/API_measurement.c \
+../Drivers/API/Src/API_uart.c \
 ../Drivers/API/Src/sht4x.c \
 ../Drivers/API/Src/sht4x_port.c \
 ../Drivers/API/Src/sunrise.c \
 ../Drivers/API/Src/sunrise_port.c 
 
 OBJS += \
+./Drivers/API/Src/API_debounce.o \
 ./Drivers/API/Src/API_delay.o \
+./Drivers/API/Src/API_dobleclick.o \
+./Drivers/API/Src/API_measurement.o \
+./Drivers/API/Src/API_uart.o \
 ./Drivers/API/Src/sht4x.o \
 ./Drivers/API/Src/sht4x_port.o \
 ./Drivers/API/Src/sunrise.o \
 ./Drivers/API/Src/sunrise_port.o 
 
 C_DEPS += \
+./Drivers/API/Src/API_debounce.d \
 ./Drivers/API/Src/API_delay.d \
+./Drivers/API/Src/API_dobleclick.d \
+./Drivers/API/Src/API_measurement.d \
+./Drivers/API/Src/API_uart.d \
 ./Drivers/API/Src/sht4x.d \
 ./Drivers/API/Src/sht4x_port.d \
 ./Drivers/API/Src/sunrise.d \
@@ -33,7 +45,7 @@ Drivers/API/Src/%.o Drivers/API/Src/%.su: ../Drivers/API/Src/%.c Drivers/API/Src
 clean: clean-Drivers-2f-API-2f-Src
 
 clean-Drivers-2f-API-2f-Src:
-	-$(RM) ./Drivers/API/Src/API_delay.d ./Drivers/API/Src/API_delay.o ./Drivers/API/Src/API_delay.su ./Drivers/API/Src/sht4x.d ./Drivers/API/Src/sht4x.o ./Drivers/API/Src/sht4x.su ./Drivers/API/Src/sht4x_port.d ./Drivers/API/Src/sht4x_port.o ./Drivers/API/Src/sht4x_port.su ./Drivers/API/Src/sunrise.d ./Drivers/API/Src/sunrise.o ./Drivers/API/Src/sunrise.su ./Drivers/API/Src/sunrise_port.d ./Drivers/API/Src/sunrise_port.o ./Drivers/API/Src/sunrise_port.su
+	-$(RM) ./Drivers/API/Src/API_debounce.d ./Drivers/API/Src/API_debounce.o ./Drivers/API/Src/API_debounce.su ./Drivers/API/Src/API_delay.d ./Drivers/API/Src/API_delay.o ./Drivers/API/Src/API_delay.su ./Drivers/API/Src/API_dobleclick.d ./Drivers/API/Src/API_dobleclick.o ./Drivers/API/Src/API_dobleclick.su ./Drivers/API/Src/API_measurement.d ./Drivers/API/Src/API_measurement.o ./Drivers/API/Src/API_measurement.su ./Drivers/API/Src/API_uart.d ./Drivers/API/Src/API_uart.o ./Drivers/API/Src/API_uart.su ./Drivers/API/Src/sht4x.d ./Drivers/API/Src/sht4x.o ./Drivers/API/Src/sht4x.su ./Drivers/API/Src/sht4x_port.d ./Drivers/API/Src/sht4x_port.o ./Drivers/API/Src/sht4x_port.su ./Drivers/API/Src/sunrise.d ./Drivers/API/Src/sunrise.o ./Drivers/API/Src/sunrise.su ./Drivers/API/Src/sunrise_port.d ./Drivers/API/Src/sunrise_port.o ./Drivers/API/Src/sunrise_port.su
 
 .PHONY: clean-Drivers-2f-API-2f-Src
 

@@ -16,7 +16,7 @@ static UART_HandleTypeDef UartHandle;
 
 #define UART_BaudRate 9600
 
-uint8_t conf_uart[]="UART INICIALIZADA EN 9600 8N1"; //(1 bit de inicio, 8 bits de datos, ningún (N) bit de paridad, y un (1) bit de parada)";
+uint8_t conf_uart[]="UART INICIALIZADA EN 9600 8N1\r\n"; //(1 bit de inicio, 8 bits de datos, ningún (N) bit de paridad, y un (1) bit de parada)";
 
 
 bool_t uartInit(){
@@ -52,7 +52,7 @@ void uartSendString(uint8_t * pstring){
 
 	//strlen cuenta los caracteres hasta un \0
 	uint16_t size = strlen((char *)pstring);
-	uint16_t uart_time_out = (10*((size))*(1/UART_BaudRate))*10*1000;
+	uint16_t uart_time_out = (uint16_t)(10.0*((size))*(1.0/UART_BaudRate)*10.0*1000.0);
 	HAL_UART_Transmit(&UartHandle,pstring,size,uart_time_out);
 
 
@@ -61,7 +61,7 @@ void uartSendStringSize(uint8_t * pstring, uint16_t size){
 
 	/*calculo el tiempo como 10 bits de la transmisión UART * size (veces transmitidas) * velocidad (1/BAUDRATE) + margen multiplico x10
 	 *ultimo multiplico por 1000 para los ms*/
-	uint16_t uart_time_out = (10*((size))*(1/UART_BaudRate))*10*1000;
+	uint16_t uart_time_out = (uint16_t)(10.0*((size))*(1.0/UART_BaudRate)*10.0*1000.0);
 	HAL_UART_Transmit(&UartHandle,pstring,size,uart_time_out);
 
 

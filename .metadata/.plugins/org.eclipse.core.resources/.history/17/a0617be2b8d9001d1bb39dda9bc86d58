@@ -1,0 +1,61 @@
+/*
+ * API_debounce.c
+ *
+ *  Created on: Mar 28, 2023
+ *      Author: leandro
+ */
+
+
+#include "API_debounce.h"
+#include "API_delay.h"
+#include "stm32f4xx_hal.h"  		/* <- HAL include */
+#include "stm32f4xx_nucleo_144.h" 	/* <- BSP include */
+
+
+typedef enum{
+	ZERO,
+	ONE,
+	TWO,
+} clickState_t;
+
+
+static delay_t delay_click;
+static clickState_t actual_state_click;
+
+
+
+/*
+ * Incializa la máquina de estados en BUTTON_UP
+ */
+void clickStateFSM_init(){
+	actual_state_click = ZERO;
+	delayInit(&delay_click, 500);
+}
+/*
+ * Máquina de estados para resolver los problemas de rebote del botón
+ * mediante Software usando retardo no bloqueante definido en DEBOUNCE_TIME
+ */
+void debounceFSM_update(){
+
+	switch(actual_state){
+
+			case ZERO:
+				if(key_press()){
+
+				}
+			break;
+
+			case ONE:
+
+			break;
+
+			case TWO:
+				//configuration_FSM();
+			break;
+
+			default:
+				actual_state_click=ZERO;
+			break;
+
+	}
+}

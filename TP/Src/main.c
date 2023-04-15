@@ -18,8 +18,12 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "API_measurement.h"
+#include "API_debounce.h"
+#include "API_dobleclick.h"
 #include "sht4x.h"
 #include "sunrise.h"
+#include "API_uart.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -91,7 +95,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
 
-
+  uartInit();
   MX_I2C1_Init();
   HAL_I2C_MspInit(&hi2c1);
   sht4x_init(&hi2c1);
@@ -102,28 +106,20 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
-  	 uint16_t hola = 0;
-
-
-  	 uint16_t temp16 = 0;
-  	 uint16_t hum16 = 0;
+	/* Initialize BSP PB for BUTTON_USER */
+	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
+	debounceFSM_init();
+	clickStateFSM_init();
+  	measurement_FSM_init();
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  //uint8_t err = sht4x_read_serial_number(&hola);
-	  //if(err<0){
 
-	  //}
-	  sht4x_read_serial_number(&hola);
-	  HAL_Delay(1000);
-	  sunrise_read_co2(&hola);
-	  HAL_Delay(1000);
-
-	  //err = sht4x_temp_hum_low_presition(&temp16, &hum16);
-
+	  measurement_FSM_update();
+	  debounceFSM_update();
+	  clickFSM_update();
 
 
   }

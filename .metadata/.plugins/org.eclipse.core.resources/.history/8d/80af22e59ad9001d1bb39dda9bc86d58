@@ -1,0 +1,36 @@
+/*
+ * API_mensurement.c
+ *
+ *  Created on: Apr 12, 2023
+ *      Author: leandro
+ */
+
+#include "API_measurement.h"
+
+void measurement_FSM_init();		// debe cargar el estado inicial
+void measurement_FSM_update();	// debe leer las entradas, resolver la lógica de
+					// transición de estados y actualizar las salidas
+
+
+
+void measurement_FSM_update(){
+	switch(actual_state){
+
+			case IDLE:
+
+			break;
+
+			case MEASURMENT:
+
+			break;
+
+			case CONFIGURATION:
+
+			break;
+
+			default:
+				actual_state=IDLE;
+			break;
+
+		}
+}
